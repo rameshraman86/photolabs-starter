@@ -60,8 +60,6 @@ const useApplicationData = () => {
     clickedPhoto,
     isNotificationActive,
     photoData
-    // photoData: [],
-    // topicData: []
   };
 
   const data = {
