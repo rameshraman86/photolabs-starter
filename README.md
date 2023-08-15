@@ -15,13 +15,13 @@ PhotoLabs is a React-based single-page application (SPA) that allows users to vi
 -- The client will communicate with the API over HTTP using the JSON format
 ```
 ## Screenshots
-!["Filter by a Category"] (https://github.com/rameshraman86/photolabs-starter/blob/main/docs/Animals-category.png)
+!["Filter by a Category"](https://github.com/rameshraman86/photolabs-starter/blob/main/docs/Animals-category.png)
 
-!["Homepage"] (https://github.com/rameshraman86/photolabs-starter/blob/main/docs/homepage.png)
+!["Homepage"](https://github.com/rameshraman86/photolabs-starter/blob/main/docs/homepage.png)
 
-!["Open a Photo in Modal to view in full size"] (https://github.com/rameshraman86/photolabs-starter/blob/main/docs/modal.png)
+!["Open a Photo in Modal to view in full size"](https://github.com/rameshraman86/photolabs-starter/blob/main/docs/modal.png)
 
-!["See similar photos to the one opened"] (https://github.com/rameshraman86/photolabs-starter/blob/main/docs/similar-photos-in-modal.png)
+!["See similar photos to the one opened"](https://github.com/rameshraman86/photolabs-starter/blob/main/docs/similar-photos-in-modal.png)
 
 
 ## Setup
