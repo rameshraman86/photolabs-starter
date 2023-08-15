@@ -11,6 +11,7 @@ const HomeRoute = (props) => {
       <TopNavigation
         topics={props.topics}
         toggleNotification={props.toggleNotification}
+        getPhotosOfTopic={props.getPhotosOfTopic}
       />
       <PhotoList
         photos={props.photos}

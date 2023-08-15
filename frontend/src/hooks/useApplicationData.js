@@ -6,10 +6,12 @@ import topics from 'mocks/topics';
 
 const useApplicationData = () => {
 
+  const [photoData, setPhotoData] = useState([]);
+  const [topicData, setTopicData] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [clickedPhoto, setClickedPhoto] = useState([]);
-  const [photoData, setPhotoData] = useState([]);
-  const [topicData, setTopicData ] = useState([]);
+  const [selectedTopic, setSelectedTopic] = useState([]);
+
 
   //The updateToFavPhotoIds action can be used to set the favourite photos.
   //if a photo user is trying to fav. is already a fav, then remove it from the array
@@ -45,14 +47,33 @@ const useApplicationData = () => {
   //if favorites state has at least 1 photo, then show notification.
   const isNotificationActive = favorites.length > 0;
 
-  //get photo from API
+  //GET PHOTOS FROM API
+  const getPhotosOfTopic = (topicID) => {
+    if (topicID === 'logo') {
+      setSelectedTopic([]);
+    } else {
+      setSelectedTopic([topicID]);
+    }
+  };
+
   useEffect(() => {
-    fetch('/api/photos')
-      .then(response => response.json())
-      .then(data => {
-        setPhotoData([...data]);
-      });
-  }, []);
+    if (selectedTopic.length === 0) {
+      fetch('/api/photos')
+        .then(response => response.json())
+        .then(data => {
+          setPhotoData([...data]);
+        });
+      return;
+    }
+    if (selectedTopic.length > 0) {
+      fetch(`/api/topics/photos/${selectedTopic[0]}/`)
+        .then(response => response.json())
+        .then(data => {
+          setPhotoData([...data]);
+        });
+      return;
+    }
+  }, [selectedTopic]);
 
   //get topic data from API
   useEffect(() => {
@@ -64,7 +85,6 @@ const useApplicationData = () => {
   }, []);
 
 
-
   const state = {
     favorites,
     clickedPhoto,
@@ -73,17 +93,14 @@ const useApplicationData = () => {
     topicData
   };
 
-  const data = {
-    photos,
-    topics
-  };
+
 
   return {
     state,
-    data,
     updateToFavPhotoIds,
     setPhotoSelected,
     onClosePhotoDetailsModal,
+    getPhotosOfTopic
   };
 };
 

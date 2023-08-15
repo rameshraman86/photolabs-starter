@@ -13,7 +13,8 @@ const App = () => {
     state,
     updateToFavPhotoIds,
     setPhotoSelected,
-    onClosePhotoDetailsModal
+    onClosePhotoDetailsModal,
+    getPhotosOfTopic
   } = useApplicationData();
 
 
@@ -27,6 +28,7 @@ const App = () => {
         toggleFavorite={updateToFavPhotoIds}
         toggleNotification={state.isNotificationActive}
         toggleModal={setPhotoSelected}
+        getPhotosOfTopic={getPhotosOfTopic}
       />
       {state.clickedPhoto.length > 0 && (
         <PhotoDetailsModal
