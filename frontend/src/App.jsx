@@ -11,7 +11,6 @@ const App = () => {
 
   const {
     state,
-    data,
     updateToFavPhotoIds,
     setPhotoSelected,
     onClosePhotoDetailsModal
@@ -22,7 +21,7 @@ const App = () => {
     <div className="App">
       <HomeRoute
         photos={state.photoData}
-        topics={data.topics}
+        topics={state.topicData}
         favorites={state.favorites}
         clickedPhoto={state.clickedPhoto}
         toggleFavorite={updateToFavPhotoIds}

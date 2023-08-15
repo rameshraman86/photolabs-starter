@@ -9,7 +9,8 @@ const useApplicationData = () => {
   const [favorites, setFavorites] = useState([]);
   const [clickedPhoto, setClickedPhoto] = useState([]);
   const [photoData, setPhotoData] = useState([]);
-  const topicData = [];
+  const [topicData, setTopicData ] = useState([]);
+
   //The updateToFavPhotoIds action can be used to set the favourite photos.
   //if a photo user is trying to fav. is already a fav, then remove it from the array
   //since it is being unfavorited. else, make it a favorite
@@ -53,13 +54,23 @@ const useApplicationData = () => {
       });
   }, []);
 
+  //get topic data from API
+  useEffect(() => {
+    fetch('/api/topics')
+      .then(response => response.json())
+      .then(data => {
+        setTopicData([...data]);
+      });
+  }, []);
+
 
 
   const state = {
     favorites,
     clickedPhoto,
     isNotificationActive,
-    photoData
+    photoData,
+    topicData
   };
 
   const data = {
