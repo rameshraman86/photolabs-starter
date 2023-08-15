@@ -6,12 +6,12 @@ import '../styles/FavBadge.scss';
 const FavBadge = ({ toggleNotification }) => {
   return (
     <div className='fav-badge'>
-      <FavIcon
-        selected={toggleNotification}
-        displayAlert={toggleNotification}
-      />
+        <FavIcon
+          selected={toggleNotification}
+          displayAlert={toggleNotification}
+        />
     </div>
-  );  
+  );
 };
 
 export default FavBadge;

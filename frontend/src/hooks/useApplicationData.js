@@ -1,8 +1,5 @@
 import { useEffect, useState } from 'react';
 
-import photos from 'mocks/photos';
-import topics from 'mocks/topics';
-
 
 const useApplicationData = () => {
 
@@ -47,7 +44,12 @@ const useApplicationData = () => {
   //if favorites state has at least 1 photo, then show notification.
   const isNotificationActive = favorites.length > 0;
 
-  //GET PHOTOS FROM API
+
+
+/*
+GET PHOTOS AND TOPICS FROM API
+*/
+  //GET PHOTOS FROM API BASED ON THE CLICKED TOPIC/LOGO
   const getPhotosOfTopic = (topicID) => {
     if (topicID === 'logo') {
       setSelectedTopic([]);
@@ -75,7 +77,9 @@ const useApplicationData = () => {
     }
   }, [selectedTopic]);
 
-  //get topic data from API
+
+
+  //GET TOPICS FROM API
   useEffect(() => {
     fetch('/api/topics')
       .then(response => response.json())
@@ -83,6 +87,8 @@ const useApplicationData = () => {
         setTopicData([...data]);
       });
   }, []);
+
+
 
 
   const state = {

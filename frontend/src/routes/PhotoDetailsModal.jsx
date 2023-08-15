@@ -17,7 +17,7 @@ const PhotoDetailsModal = (props) => {
         <img src={closeSymbol} alt="close symbol" onClick={toggleModal} />
       </button>
 
-      <div className="photo-details-modal--images">
+      <div className="photo-details-modal__images">
         <PhotoFavButton
           selected={favorites.includes(clickedPhoto[0].id)}
           onClick={() => toggleFavorite(clickedPhoto[0].id)}
